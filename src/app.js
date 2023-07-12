@@ -1,18 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('./config');
-const {getAllUsers} = require('./controllers/base.controller');
+const {getAllUsers} = require('./controllers/base.controller')
 
 const app = express();
-
 //Middleware
-app.use(bodyParser.json);
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
 
 //Routes
 app.get('/users', getAllUsers);
 
-//Server initialization
+//Sever initialization
 app.listen(config.port, () => {
-    console.log(`Server is running on port: ${config.port}`);
+    console.log(`Server is runing on port ${config.port}`);
 });
