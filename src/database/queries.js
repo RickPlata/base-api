@@ -1,5 +1,5 @@
 const queries = {
-    getAllUsers: 'SELECT * FROM administrativos'
+    getAllUsers: 'SELECT * FROM users'
 }
 
 module.exports = queries;
