@@ -1,7 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const config = require('./config');
-const {getAllUsers, getOneUser, newUser, updateUser, deleteUser} = require('./controllers/base.users.controller')
+const {getAllUsers, getOneUser, newUser, updateUser, deleteUser} = require('./controllers/base.users.controller');
+const {getAllBlogs, getUserBlog, newBlog, updateBlog, deleteBlog} = require('./controllers/base.blog.controller');
+const {getAllSounds, getUserSounds, newSounds, updateSounds, deleteSounds} = require('./controllers/base.sounds.controller');
+const {getAllLetters, getUserletters, newLetter, updateLetter, deleteLetter} = require('./controllers/base.letters.controller');
+const {getAllGallery, getUserGallery, newGallery, updateGallery, deleteGallery} = require('./controllers/base.gallery.controller');
 
 const app = express();
 //Middleware
@@ -17,32 +21,32 @@ app.put('/users', updateUser);
 app.delete('/users', deleteUser);
 
 //Blog
-app.get('/blog', getAllUsers);
-app.get('/blog/:nick', getAllUsers);
-app.post('/blog', getAllUsers);
-app.put('/blog', getAllUsers);
-app.delete('/blog', getAllUsers);
+app.get('/blog', getAllBlogs);
+app.get('/blog/:nick', getUserBlog);
+app.post('/blog', newBlog);
+app.put('/blog', updateBlog);
+app.delete('/blog', deleteBlog);
 
 //sounds
-app.get('/sounds', getAllUsers);
-app.get('/sounds/:nick', getAllUsers);
-app.post('/sounds', getAllUsers);
-app.put('/sounds', getAllUsers);
-app.delete('/sounds', getAllUsers);
+app.get('/sounds', getAllSounds);
+app.get('/sounds/:nick', getUserSounds);
+app.post('/sounds', newSounds);
+app.put('/sounds', updateSounds);
+app.delete('/sounds', deleteSounds);
 
 //letters
-app.get('/letters', getAllUsers);
-app.get('/letters/:nick', getAllUsers);
-app.post('/letters', getAllUsers);
-app.put('/letters', getAllUsers);
-app.delete('/letters', getAllUsers);
+app.get('/letters', getAllLetters);
+app.get('/letters/:nick', getUserletters);
+app.post('/letters', newLetter);
+app.put('/letters', updateLetter);
+app.delete('/letters', deleteLetter);
 
 //gallery
-app.get('/gallery', getAllUsers);
-app.get('/gallery/:nick', getAllUsers);
-app.post('/gallery', getAllUsers);
-app.put('/gallery', getAllUsers);
-app.delete('/gallery', getAllUsers);
+app.get('/gallery', getAllGallery);
+app.get('/gallery/:nick', getUserGallery);
+app.post('/gallery', newGallery);
+app.put('/gallery', updateGallery);
+app.delete('/gallery', deleteGallery);
 
 //Sever initialization
 app.listen(config.port, () => {
